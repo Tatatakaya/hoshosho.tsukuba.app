@@ -43,8 +43,7 @@
     "OCR_DAILY_GLOBAL_LIMIT": "400",
     // OCR利用制限を適用しないメールアドレス(カンマ区切り)
     "OCR_UNLIMITED_EMAILS": "takaya10o01@gmail.com"
-  }
+  },
 
-  // 本番ドメインに紐付ける場合は以下を有効化する
-  // "routes": [{ "pattern": "hoshosho.tsukuba.app", "custom_domain": true }]
+  "routes": [{ "pattern": "hoshosho.tsukuba.app", "custom_domain": true }]
 }
