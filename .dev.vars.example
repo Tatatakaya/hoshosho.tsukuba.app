@@ -1,0 +1,3 @@
+# ローカル開発用のシークレット。コピーして .dev.vars を作成する(gitignore済み)
+# 本番は `wrangler secret put GOOGLE_CLIENT_SECRET` で設定する
+GOOGLE_CLIENT_SECRET=""

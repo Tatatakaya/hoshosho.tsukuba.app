@@ -1,0 +1,50 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hoshosho",
+  "main": "src/index.ts",
+  // アカウントIDは機密情報ではない(CI用。トークンは GitHub Secrets の CLOUDFLARE_API_TOKEN)
+  "account_id": "5884827c25d6e8ac217e6e513f82702b",
+  "compatibility_date": "2026-05-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // SPA + PWA の静的アセット。/api/* のみ Worker で先に処理する
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "hoshosho-db",
+      "database_id": "9431103d-6a06-4f76-960c-d82e9a31366b"
+    }
+  ],
+
+  "ai": {
+    "binding": "AI",
+    // ローカル開発でもWorkers AIはリモート実行(課金対象になり得る)
+    "remote": true
+  },
+
+  "vars": {
+    // Google Cloud Console で発行した OAuth クライアントID(シークレットは `wrangler secret put GOOGLE_CLIENT_SECRET`)
+    "GOOGLE_CLIENT_ID": "",
+    // 1ユーザーあたりの週次OCR回数上限(月曜0:00 JST起点)
+    "OCR_WEEKLY_LIMIT": "10",
+    // 全ユーザー合計の日次OCR回数上限(0:00 UTC起点、Workers AI無料枠ガード)
+    "OCR_DAILY_GLOBAL_LIMIT": "400",
+    // OCR利用制限を適用しないメールアドレス(カンマ区切り)
+    "OCR_UNLIMITED_EMAILS": "takaya10o01@gmail.com"
+  }
+
+  // 本番ドメインに紐付ける場合は以下を有効化する
+  // "routes": [{ "pattern": "hoshosho.tsukuba.app", "custom_domain": true }]
+}

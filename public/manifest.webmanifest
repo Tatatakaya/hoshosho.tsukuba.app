@@ -1,0 +1,16 @@
+{
+  "name": "ほしょしょ - 保証書管理",
+  "short_name": "ほしょしょ",
+  "description": "保証書を撮影するだけで保証期限を記録・検索。画像はサーバーに保存されません。",
+  "lang": "ja",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0d9488",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
