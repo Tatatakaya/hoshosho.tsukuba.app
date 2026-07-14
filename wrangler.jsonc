@@ -36,7 +36,7 @@
 
   "vars": {
     // Google Cloud Console で発行した OAuth クライアントID(シークレットは `wrangler secret put GOOGLE_CLIENT_SECRET`)
-    "GOOGLE_CLIENT_ID": "",
+    "GOOGLE_CLIENT_ID": "493668738588-hk9tessnp6b9er5rrtog79vldroalq0m.apps.googleusercontent.com",
     // 1ユーザーあたりの週次OCR回数上限(月曜0:00 JST起点)
     "OCR_WEEKLY_LIMIT": "10",
     // 全ユーザー合計の日次OCR回数上限(0:00 UTC起点、Workers AI無料枠ガード)
